@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "harmony",
+	"version": "${version}",
+
+	"name": "HarmonyCraft",
+	"description": "Adds various MLP inspired things to Minecraft",
+	"authors": [
+		"stickacupcakeinmyeye"
+	],
+	"contact": {
+		"homepage": "https://stickacupcakeinmyeye.github.io/harmonycraft/",
+		"sources": "https://github.com/stickacupcakeinmyeye/harmonycraft/"
+	},
+
+	"license": "zlib",
+	"icon": "assets/harmony/icon.png",
+
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.stickacupcakeinmyeye.harmonycraft.HarmonyCraft"
+		]
+	},
+	"mixins": [
+		"harmony.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.8.7",
+		"fabric": "*",
+		"minecraft": "1.18.x"
+	},
+	"suggests": {
+		"minelp": "*"
+	}
+}

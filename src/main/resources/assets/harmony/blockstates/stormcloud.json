@@ -1,0 +1,5 @@
+{
+	"variants": {
+		"": [{"model": "harmony:block/stormcloud/normal"}, {"model": "harmony:block/stormcloud/swirl"}]
+	}
+}

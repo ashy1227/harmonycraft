@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "io.github.stickacupcakeinmyeye.harmonycraft.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+		"LivingEntityMixin",
+		"EntityMixin"
+  ],
+  "client": [
+		"ParticleManagerMixin"
+  ],
+  "injectors": {
+		"defaultRequire": 1
+  }
+}
