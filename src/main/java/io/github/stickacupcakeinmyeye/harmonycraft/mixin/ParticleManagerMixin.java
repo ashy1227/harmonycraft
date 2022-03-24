@@ -1,12 +1,12 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.mixin;
 
 import io.github.stickacupcakeinmyeye.harmonycraft.block.HarmonyBlockTags;
+import io.github.stickacupcakeinmyeye.harmonycraft.particle.HarmonyParticles;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
@@ -47,7 +47,7 @@ public class ParticleManagerMixin {
 							double p = g * d + minX;
 							double q = h * e + minY;
 							double r = o * f + minZ;
-							addParticle(ParticleTypes.CLOUD, pos.getX() + p, pos.getY() + q, pos.getZ() + r, 0.0d, 0.0d, 0.0d);
+							addParticle(HarmonyParticles.CLOUD, pos.getX() + p, pos.getY() + q, pos.getZ() + r, 0.0d, 0.0d, 0.0d);
 						}
 					}
 				}
@@ -89,7 +89,7 @@ public class ParticleManagerMixin {
 			if (direction == Direction.EAST) {
 				d = (double)i + box.maxX + (double)0.1f;
 			}
-			addParticle(ParticleTypes.CLOUD, d, e, g, 0.0d, 0.0d, 0.0d);
+			addParticle(HarmonyParticles.CLOUD, d, e, g, 0.0d, 0.0d, 0.0d);
 			ci.cancel();
 		}
 	}
