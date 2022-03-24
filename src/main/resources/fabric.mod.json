@@ -20,6 +20,9 @@
 	"entrypoints": {
 		"main": [
 			"io.github.stickacupcakeinmyeye.harmonycraft.HarmonyCraft"
+		],
+		"client": [
+			"io.github.stickacupcakeinmyeye.harmonycraft.HarmonyCraftClient"
 		]
 	},
 	"mixins": [
