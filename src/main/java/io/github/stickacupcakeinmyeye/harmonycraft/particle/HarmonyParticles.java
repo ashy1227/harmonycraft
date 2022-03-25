@@ -14,14 +14,20 @@ import net.minecraft.util.registry.Registry;
 public class HarmonyParticles {
 	public static final DefaultParticleType ZAP = FabricParticleTypes.simple();
 	public static final DefaultParticleType CLOUD = FabricParticleTypes.simple();
+	public static final DefaultParticleType RAINCLOUD = FabricParticleTypes.simple();
+	public static final DefaultParticleType STORMCLOUD = FabricParticleTypes.simple();
 
 	public static void registerAll() {
 		registerParticle("zap", ZAP);
 		registerParticle("cloud", CLOUD);
+		registerParticle("raincloud", RAINCLOUD);
+		registerParticle("stormcloud", STORMCLOUD);
 	}
 	public static void registerClient() {
 		registerParticleClient(ZAP, ZapParticle.Factory::new);
 		registerParticleClient(CLOUD, CloudParticle.Factory::new);
+		registerParticleClient(RAINCLOUD, CloudParticle.Factory::new);
+		registerParticleClient(STORMCLOUD, CloudParticle.Factory::new);
 	}
 
 	protected static <T extends ParticleEffect> void registerParticle(String ID, ParticleType<T> particleType) {

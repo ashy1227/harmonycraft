@@ -1,7 +1,6 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.mixin;
 
-import io.github.stickacupcakeinmyeye.harmonycraft.block.HarmonyBlockTags;
-import io.github.stickacupcakeinmyeye.harmonycraft.particle.HarmonyParticles;
+import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.CloudBlock;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.particle.*;
@@ -29,7 +28,7 @@ public class ParticleManagerMixin {
 
 	@Inject(at = @At("HEAD"), cancellable = true, method = "Lnet/minecraft/client/particle/ParticleManager;addBlockBreakParticles(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)V")
 	private void addBlockBreakParticles(BlockPos pos, BlockState state, CallbackInfo ci) {
-		if(state.isIn(HarmonyBlockTags.CLOUDS)) {
+		if(state.getBlock() instanceof CloudBlock) {
 			VoxelShape voxelShape = state.getOutlineShape(world, pos);
 			voxelShape.forEachBox((minX, minY, minZ, maxX, maxY, maxZ) -> {
 				double d = Math.min(1.0d, maxX - minX);
@@ -47,7 +46,7 @@ public class ParticleManagerMixin {
 							double p = g * d + minX;
 							double q = h * e + minY;
 							double r = o * f + minZ;
-							addParticle(HarmonyParticles.CLOUD, pos.getX() + p, pos.getY() + q, pos.getZ() + r, 0.0d, 0.0d, 0.0d);
+							addParticle(((CloudBlock) state.getBlock()).getCloudParticle(), pos.getX() + p, pos.getY() + q, pos.getZ() + r, 0.0d, 0.0d, 0.0d);
 						}
 					}
 				}
@@ -59,7 +58,7 @@ public class ParticleManagerMixin {
 	@Inject(at = @At("HEAD"), cancellable = true, method = "Lnet/minecraft/client/particle/ParticleManager;addBlockBreakingParticles(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction;)V")
 	public void addBlockBreakingParticles(BlockPos pos, Direction direction, CallbackInfo ci) {
 		BlockState blockState = this.world.getBlockState(pos);
-		if(blockState.isIn(HarmonyBlockTags.CLOUDS)) {
+		if(blockState.getBlock() instanceof CloudBlock) {
 			if (blockState.getRenderType() == BlockRenderType.INVISIBLE) {
 				return;
 			}
@@ -89,7 +88,7 @@ public class ParticleManagerMixin {
 			if (direction == Direction.EAST) {
 				d = (double)i + box.maxX + (double)0.1f;
 			}
-			addParticle(HarmonyParticles.CLOUD, d, e, g, 0.0d, 0.0d, 0.0d);
+			addParticle(((CloudBlock) blockState.getBlock()).getCloudParticle(), d, e, g, 0.0d, 0.0d, 0.0d);
 			ci.cancel();
 		}
 	}

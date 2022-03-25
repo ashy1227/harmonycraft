@@ -1,7 +1,6 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.mixin;
 
-import io.github.stickacupcakeinmyeye.harmonycraft.block.HarmonyBlockTags;
-import io.github.stickacupcakeinmyeye.harmonycraft.particle.HarmonyParticles;
+import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.CloudBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -25,10 +24,10 @@ public abstract class LivingEntityMixin extends Entity {
 	protected void fall(double heightDifference, boolean onGround, BlockState landedState, BlockPos landedPosition, CallbackInfo ci) {
 		if (!this.world.isClient && this.fallDistance > 0.5f && onGround) {
 			float f = MathHelper.ceil(this.fallDistance - 0.5f);
-			if(landedState.isIn(HarmonyBlockTags.CLOUDS)) {
+			if(landedState.getBlock() instanceof CloudBlock) {
 				double d = Math.min((0.2f + f / 4.0f), 2.5);
 				int i = (int)(15.0 * d);
-				((ServerWorld)this.world).spawnParticles(HarmonyParticles.CLOUD, this.getX()-0.2d, this.getY()+0.1d, this.getZ()-0.2d, i, 0.4d, 0.1d, 0.4d, 0.0d);
+				((ServerWorld)this.world).spawnParticles(((CloudBlock) landedState.getBlock()).getCloudParticle(), this.getX()-0.2d, this.getY()+0.1d, this.getZ()-0.2d, i, 0.4d, 0.1d, 0.4d, 0.0d);
 				super.fall(heightDifference, onGround, landedState, landedPosition);
 				ci.cancel();
 			}

@@ -1,7 +1,6 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.mixin;
 
-import io.github.stickacupcakeinmyeye.harmonycraft.block.HarmonyBlockTags;
-import io.github.stickacupcakeinmyeye.harmonycraft.particle.HarmonyParticles;
+import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.CloudBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
@@ -37,9 +36,9 @@ public class EntityMixin {
 		int i = MathHelper.floor(this.getX());
 		BlockPos blockPos = new BlockPos(i, j = MathHelper.floor(this.getY() - (double)0.2f), k = MathHelper.floor(this.getZ()));
 		BlockState blockState = this.world.getBlockState(blockPos);
-		if(blockState.isIn(HarmonyBlockTags.CLOUDS)) {
+		if(blockState.getBlock() instanceof CloudBlock) {
 			if(random.nextInt(4) == 0) {
-				this.world.addParticle(HarmonyParticles.CLOUD, this.getX() + (this.random.nextDouble() - 0.5d) * (double) this.dimensions.width, this.getY() + 0.1d, this.getZ() + (this.random.nextDouble() - 0.5d) * (double) this.dimensions.width, 0.0d, 0.0d, 0.0d);
+				this.world.addParticle(((CloudBlock) blockState.getBlock()).getCloudParticle(), this.getX() + (this.random.nextDouble() - 0.5d) * (double) this.dimensions.width, this.getY() + 0.1d, this.getZ() + (this.random.nextDouble() - 0.5d) * (double) this.dimensions.width, 0.0d, 0.0d, 0.0d);
 			}
 			ci.cancel();
 		}

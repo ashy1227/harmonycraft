@@ -3,6 +3,8 @@ package io.github.stickacupcakeinmyeye.harmonycraft.block.blocks;
 import io.github.stickacupcakeinmyeye.harmonycraft.particle.HarmonyParticles;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -23,9 +25,11 @@ public class StormcloudBlock extends RaincloudBlock {
 			world.spawnEntity(lightning);
 		}
 	}
+
+	@Override
 	public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
 		super.randomDisplayTick(state, world, pos, random);
-		if (random.nextInt(2) == 0) {
+		if (random.nextInt(4) == 0) {
 			Direction direction = Direction.random(random);
 			BlockPos blockPos = pos.offset(direction);
 			BlockState blockState = world.getBlockState(blockPos);
@@ -36,5 +40,13 @@ public class StormcloudBlock extends RaincloudBlock {
 				world.addParticle(HarmonyParticles.ZAP, pos.getX() + xOffset, pos.getY() + yOffset, pos.getZ() + zOffset, 0.0d, 0.0d, 0.0d);
 			}
 		}
+		if (world.getBlockState(pos.down()).isAir()) {
+			world.addParticle(ParticleTypes.DRIPPING_WATER, pos.getX() + random.nextDouble(), pos.getY(), pos.getZ() + random.nextDouble(), 0.0d, 0.0d, 0.0d);
+		}
+	}
+
+	@Override
+	public ParticleEffect getCloudParticle() {
+		return HarmonyParticles.STORMCLOUD;
 	}
 }
