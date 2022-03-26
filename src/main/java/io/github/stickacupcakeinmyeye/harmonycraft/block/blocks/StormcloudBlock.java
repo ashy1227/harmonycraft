@@ -33,15 +33,18 @@ public class StormcloudBlock extends RaincloudBlock {
 			Direction direction = Direction.random(random);
 			BlockPos blockPos = pos.offset(direction);
 			BlockState blockState = world.getBlockState(blockPos);
-			if (!state.isOpaque() || !blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite())) {
+			if (!blockState.isOpaque() || !blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite())) {
 				double xOffset = direction.getOffsetX() == 0 ? random.nextDouble() : 0.5d + direction.getOffsetX() * 0.6d;
 				double yOffset = direction.getOffsetY() == 0 ? random.nextDouble() : 0.5d + direction.getOffsetY() * 0.6d;
 				double zOffset = direction.getOffsetZ() == 0 ? random.nextDouble() : 0.5d + direction.getOffsetZ() * 0.6d;
 				world.addParticle(HarmonyParticles.ZAP, pos.getX() + xOffset, pos.getY() + yOffset, pos.getZ() + zOffset, 0.0d, 0.0d, 0.0d);
 			}
 		}
-		if (world.getBlockState(pos.down()).isAir()) {
-			world.addParticle(ParticleTypes.DRIPPING_WATER, pos.getX() + random.nextDouble(), pos.getY(), pos.getZ() + random.nextDouble(), 0.0d, 0.0d, 0.0d);
+		Direction direction = Direction.DOWN;
+		BlockPos blockPos = pos.offset(direction);
+		BlockState blockState = world.getBlockState(blockPos);
+		if (!blockState.isOpaque() || !blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite())) {
+			world.addParticle(ParticleTypes.FALLING_WATER, pos.getX() + random.nextDouble(), pos.getY(), pos.getZ() + random.nextDouble(), 0.0d, 0.0d, 0.0d);
 		}
 	}
 

@@ -1,0 +1,164 @@
+{
+	"variants": {
+		"facing=east,half=bottom,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs" },
+			{ "model": "harmony:block/cloud_stairs_swirl" }
+		],
+		"facing=west,half=bottom,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "y": 180, "uvlock": true }
+		],
+		"facing=south,half=bottom,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "y": 90, "uvlock": true }
+		],
+		"facing=north,half=bottom,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "y": 270, "uvlock": true }
+		],
+		"facing=east,half=bottom,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer" },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer" }
+		],
+		"facing=west,half=bottom,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "y": 180, "uvlock": true }
+		],
+		"facing=south,half=bottom,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "y": 90, "uvlock": true }
+		],
+		"facing=north,half=bottom,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "y": 270, "uvlock": true }
+		],
+		"facing=east,half=bottom,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "y": 270, "uvlock": true }
+		],
+		"facing=west,half=bottom,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "y": 90, "uvlock": true }
+		],
+		"facing=south,half=bottom,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer" },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer" }
+		],
+		"facing=north,half=bottom,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "y": 180, "uvlock": true }
+		],
+		"facing=east,half=bottom,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner" },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner" }
+		],
+		"facing=west,half=bottom,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "y": 180, "uvlock": true }
+		],
+		"facing=south,half=bottom,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "y": 90, "uvlock": true }
+		],
+		"facing=north,half=bottom,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "y": 270, "uvlock": true }
+		],
+		"facing=east,half=bottom,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "y": 270, "uvlock": true }
+		],
+		"facing=west,half=bottom,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "y": 90, "uvlock": true }
+		],
+		"facing=south,half=bottom,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner" },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner" }
+		],
+		"facing=north,half=bottom,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "y": 180, "uvlock": true }
+		],
+		"facing=east,half=top,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "x": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "x": 180, "uvlock": true }
+		],
+		"facing=west,half=top,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "x": 180, "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "x": 180, "y": 180, "uvlock": true }
+		],
+		"facing=south,half=top,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "x": 180, "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "x": 180, "y": 90, "uvlock": true }
+		],
+		"facing=north,half=top,shape=straight": [
+			{ "model": "harmony:block/cloud_stairs", "x": 180, "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl", "x": 180, "y": 270, "uvlock": true }
+		],
+		"facing=east,half=top,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "y": 90, "uvlock": true }
+		],
+		"facing=west,half=top,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "y": 270, "uvlock": true }
+		],
+		"facing=south,half=top,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "y": 180, "uvlock": true }
+		],
+		"facing=north,half=top,shape=outer_right": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "uvlock": true }
+		],
+		"facing=east,half=top,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "uvlock": true }
+		],
+		"facing=west,half=top,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "y": 180, "uvlock": true }
+		],
+		"facing=south,half=top,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "y": 90, "uvlock": true }
+		],
+		"facing=north,half=top,shape=outer_left": [
+			{ "model": "harmony:block/cloud_stairs_outer", "x": 180, "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_outer", "x": 180, "y": 270, "uvlock": true }
+		],
+		"facing=east,half=top,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "y": 90, "uvlock": true }
+		],
+		"facing=west,half=top,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "y": 270, "uvlock": true }
+		],
+		"facing=south,half=top,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "y": 180, "uvlock": true }
+		],
+		"facing=north,half=top,shape=inner_right": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "uvlock": true }
+		],
+		"facing=east,half=top,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "uvlock": true }
+		],
+		"facing=west,half=top,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "y": 180, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "y": 180, "uvlock": true }
+		],
+		"facing=south,half=top,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "y": 90, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "y": 90, "uvlock": true }
+		],
+		"facing=north,half=top,shape=inner_left": [
+			{ "model": "harmony:block/cloud_stairs_inner", "x": 180, "y": 270, "uvlock": true },
+			{ "model": "harmony:block/cloud_stairs_swirl_inner", "x": 180, "y": 270, "uvlock": true }
+		]
+	}
+}

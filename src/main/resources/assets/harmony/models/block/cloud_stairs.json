@@ -1,0 +1,8 @@
+{
+	"parent": "block/stairs",
+	"textures": {
+		"bottom": "harmony:block/cloud",
+		"top": "harmony:block/cloud",
+		"side": "harmony:block/cloud"
+	}
+}

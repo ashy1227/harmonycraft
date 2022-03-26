@@ -1,5 +1,8 @@
 {
 	"block.harmony.cloud": "Cloud",
 	"block.harmony.raincloud": "Raincloud",
-	"block.harmony.stormcloud": "Stormcloud"
+	"block.harmony.stormcloud": "Stormcloud",
+	"block.harmony.cloud_stairs": "Cloud Stairs",
+	"block.harmony.raincloud_stairs": "Raincloud Stairs",
+	"block.harmony.stormcloud_stairs": "Stormcloud Stairs"
 }

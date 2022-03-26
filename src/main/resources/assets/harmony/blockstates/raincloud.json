@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"": {"model": "harmony:block/raincloud/normal"}
+		"": {"model": "harmony:block/raincloud"}
 	}
 }

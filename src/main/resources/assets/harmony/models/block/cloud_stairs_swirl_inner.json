@@ -1,0 +1,8 @@
+{
+	"parent": "block/inner_stairs",
+	"textures": {
+		"bottom": "harmony:block/cloud_swirl",
+		"top": "harmony:block/cloud_swirl",
+		"side": "harmony:block/cloud_swirl"
+	}
+}

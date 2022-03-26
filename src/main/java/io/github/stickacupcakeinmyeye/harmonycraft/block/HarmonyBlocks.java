@@ -1,10 +1,7 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.block;
 
 import io.github.stickacupcakeinmyeye.harmonycraft.HarmonyCraft;
-import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.CloudBlock;
-import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.PoisonJokeBlock;
-import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.RaincloudBlock;
-import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.StormcloudBlock;
+import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.*;
 import io.github.stickacupcakeinmyeye.harmonycraft.item.HarmonyItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -18,15 +15,21 @@ import net.minecraft.util.registry.Registry;
 
 public class HarmonyBlocks {
 	public static final Block CLOUD = new CloudBlock(cloudBlockSettings());
-	public static final Block RAINCLOUD = new RaincloudBlock(cloudBlockSettings());
-	public static final Block STORMCLOUD = new StormcloudBlock(cloudBlockSettings());
+	public static final Block CLOUD_STAIRS = new CloudStairsBlock(CLOUD.getDefaultState(), FabricBlockSettings.copy(CLOUD));
+	public static final Block RAINCLOUD = new RaincloudBlock(cloudBlockSettings().mapColor(MapColor.LIGHT_GRAY));
+	public static final Block RAINCLOUD_STAIRS = new RaincloudStairsBlock(RAINCLOUD.getDefaultState(), FabricBlockSettings.copy(RAINCLOUD));
+	public static final Block STORMCLOUD = new StormcloudBlock(cloudBlockSettings().mapColor(MapColor.GRAY));
+	public static final Block STORMCLOUD_STAIRS = new StormcloudStairsBlock(STORMCLOUD.getDefaultState(), FabricBlockSettings.copy(STORMCLOUD));
 
 	public static final Block POISON_JOKE = new PoisonJokeBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).noCollision());
 
 	public static void registerAll() {
 		registerBlock("cloud", CLOUD);
+		registerBlock("cloud_stairs", CLOUD_STAIRS);
 		registerBlock("raincloud", RAINCLOUD);
+		registerBlock("raincloud_stairs", RAINCLOUD_STAIRS);
 		registerBlock("stormcloud", STORMCLOUD);
+		registerBlock("stormcloud_stairs", STORMCLOUD_STAIRS);
 
 		registerBlock("poison_joke", POISON_JOKE);
 	}
