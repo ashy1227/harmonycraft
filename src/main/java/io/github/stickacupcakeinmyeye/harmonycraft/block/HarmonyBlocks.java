@@ -16,20 +16,26 @@ import net.minecraft.util.registry.Registry;
 public class HarmonyBlocks {
 	public static final Block CLOUD = new CloudBlock(cloudBlockSettings());
 	public static final Block CLOUD_STAIRS = new CloudStairsBlock(CLOUD.getDefaultState(), FabricBlockSettings.copy(CLOUD));
+	public static final Block CLOUD_SLAB = new CloudSlabBlock(FabricBlockSettings.copy(CLOUD));
 	public static final Block RAINCLOUD = new RaincloudBlock(cloudBlockSettings().mapColor(MapColor.LIGHT_GRAY));
 	public static final Block RAINCLOUD_STAIRS = new RaincloudStairsBlock(RAINCLOUD.getDefaultState(), FabricBlockSettings.copy(RAINCLOUD));
+	public static final Block RAINCLOUD_SLAB = new RaincloudSlabBlock(FabricBlockSettings.copy(RAINCLOUD));
 	public static final Block STORMCLOUD = new StormcloudBlock(cloudBlockSettings().mapColor(MapColor.GRAY));
 	public static final Block STORMCLOUD_STAIRS = new StormcloudStairsBlock(STORMCLOUD.getDefaultState(), FabricBlockSettings.copy(STORMCLOUD));
+	public static final Block STORMCLOUD_SLAB = new StormcloudSlabBlock(FabricBlockSettings.copy(STORMCLOUD));
 
 	public static final Block POISON_JOKE = new PoisonJokeBlock(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).noCollision());
 
 	public static void registerAll() {
 		registerBlock("cloud", CLOUD);
 		registerBlock("cloud_stairs", CLOUD_STAIRS);
+		registerBlock("cloud_slab", CLOUD_SLAB);
 		registerBlock("raincloud", RAINCLOUD);
 		registerBlock("raincloud_stairs", RAINCLOUD_STAIRS);
+		registerBlock("raincloud_slab", RAINCLOUD_SLAB);
 		registerBlock("stormcloud", STORMCLOUD);
 		registerBlock("stormcloud_stairs", STORMCLOUD_STAIRS);
+		registerBlock("stormcloud_slab", STORMCLOUD_SLAB);
 
 		registerBlock("poison_joke", POISON_JOKE);
 	}

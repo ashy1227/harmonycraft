@@ -1,0 +1,16 @@
+{
+	"variants": {
+		"type=bottom": [
+			{ "model": "harmony:block/stormcloud_slab" },
+			{ "model": "harmony:block/stormcloud_slab_swirl" }
+		],
+		"type=top": [
+			{ "model": "harmony:block/stormcloud_slab_top" },
+			{ "model": "harmony:block/stormcloud_slab_swirl_top" }
+		],
+		"type=double": [
+			{ "model": "harmony:block/stormcloud" },
+			{ "model": "harmony:block/stormcloud_swirl" }
+		]
+	}
+}

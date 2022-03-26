@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "harmony:block/stormcloud",
+        "top": "harmony:block/stormcloud",
+        "side": "harmony:block/stormcloud"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "type=bottom": [
+					{ "model": "harmony:block/cloud_slab" },
+					{ "model": "harmony:block/cloud_slab_swirl" }
+				],
+        "type=top": [
+					{ "model": "harmony:block/cloud_slab_top" },
+					{ "model": "harmony:block/cloud_slab_swirl_top" }
+				],
+        "type=double": [
+					{ "model": "harmony:block/cloud" },
+					{ "model": "harmony:block/cloud_swirl" }
+				]
+    }
+}

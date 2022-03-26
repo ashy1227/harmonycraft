@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "harmony:block/raincloud_slab" },
+        "type=top": { "model": "harmony:block/raincloud_slab_top" },
+        "type=double": { "model": "harmony:block/raincloud" }
+    }
+}
