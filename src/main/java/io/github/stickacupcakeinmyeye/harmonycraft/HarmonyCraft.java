@@ -14,8 +14,8 @@ public class HarmonyCraft implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		HarmonyItems.registerAll();
 		HarmonyBlocks.registerAll();
+		HarmonyItems.registerAll();
 		HarmonyStatusEffects.registerAll();
 		HarmonyParticles.registerAll();
 	}
