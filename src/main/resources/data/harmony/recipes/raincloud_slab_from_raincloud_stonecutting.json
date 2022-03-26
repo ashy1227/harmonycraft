@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "harmony:raincloud"
+  },
+  "result": "harmony:raincloud_slab",
+  "count": 2
+}

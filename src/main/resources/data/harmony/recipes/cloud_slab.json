@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "harmony:cloud"
+    }
+  },
+  "result": {
+    "item": "harmony:cloud_slab",
+    "count": 6
+  }
+}

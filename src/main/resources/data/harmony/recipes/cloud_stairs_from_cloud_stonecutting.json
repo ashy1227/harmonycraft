@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "harmony:cloud"
+  },
+  "result": "harmony:cloud_stairs",
+  "count": 1
+}

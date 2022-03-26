@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#  ",
+		"## ",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "harmony:stormcloud"
+		}
+	},
+	"result": {
+		"item": "harmony:stormcloud_stairs",
+		"count": 4
+	}
+}
