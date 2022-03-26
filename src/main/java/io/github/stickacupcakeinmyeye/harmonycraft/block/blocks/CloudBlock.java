@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.particle.ParticleEffect;
 
 // TODO integrate with MineLP so only pegasus ponies can stand on clouds
-public class CloudBlock extends Block {
+public class CloudBlock extends Block implements ICloudBlock {
 	public CloudBlock(Settings settings) {
 		super(settings);
 	}
@@ -20,6 +20,7 @@ public class CloudBlock extends Block {
 		entity.handleFallDamage(fallDistance, 0.05f, DamageSource.FALL);
 	}
 
+	@Override
 	public ParticleEffect getCloudParticle() {
 		return HarmonyParticles.CLOUD;
 	}
