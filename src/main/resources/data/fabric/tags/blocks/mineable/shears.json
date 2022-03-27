@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values": [
+		"harmony:cloud",
+		"harmony:cloud_stairs",
+		"harmony:cloud_slab",
+		"harmony:raincloud",
+		"harmony:raincloud_stairs",
+		"harmony:raincloud_slab",
+		"harmony:stormcloud",
+		"harmony:stormcloud_stairs",
+		"harmony:stormcloud_slab"
+	]
+}
