@@ -3,9 +3,11 @@ package io.github.stickacupcakeinmyeye.harmonycraft.block;
 import io.github.stickacupcakeinmyeye.harmonycraft.HarmonyCraft;
 import io.github.stickacupcakeinmyeye.harmonycraft.block.blocks.*;
 import io.github.stickacupcakeinmyeye.harmonycraft.item.HarmonyItemGroups;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -40,6 +42,9 @@ public class HarmonyBlocks {
 		registerBlock("stormcloud_slab", STORMCLOUD_SLAB);
 
 		registerBlock("poison_joke", POISON_JOKE);
+	}
+	public static void registerClient() {
+		BlockRenderLayerMap.INSTANCE.putBlock(POISON_JOKE, RenderLayer.getCutout());
 	}
 
 	protected static void registerBlock(String ID, Block block, Item.Settings itemSettings) {

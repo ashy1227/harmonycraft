@@ -7,5 +7,7 @@
 	"block.harmony.raincloud_slab": "Raincloud Slab",
 	"block.harmony.stormcloud": "Stormcloud",
 	"block.harmony.stormcloud_stairs": "Stormcloud Stairs",
-	"block.harmony.stormcloud_slab": "Stormcloud Slab"
+	"block.harmony.stormcloud_slab": "Stormcloud Slab",
+	"block.harmony.poison_joke": "Poison Joke",
+	"effect.harmony.poison_joke": "Poison Joke"
 }
