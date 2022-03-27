@@ -10,8 +10,10 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.BlockView;
 
 public class HarmonyBlocks {
 	public static final Block CLOUD = new CloudBlock(cloudBlockSettings());
@@ -49,10 +51,14 @@ public class HarmonyBlocks {
 	}
 
 	protected static FabricBlockSettings cloudBlockSettings() {
-		return FabricBlockSettings.of(HarmonyMaterials.CLOUD_MATERIAL).requiresTool().strength(0.1f).sounds(BlockSoundGroup.SNOW);
+		return FabricBlockSettings.of(HarmonyMaterials.CLOUD_MATERIAL).requiresTool().strength(0.1f).sounds(BlockSoundGroup.SNOW).suffocates(HarmonyBlocks::never);
 	}
 	protected static FabricBlockSettings logBlockSettings(MapColor topMapColor, MapColor sideMapColor) {
 		return (FabricBlockSettings) FabricBlockSettings.of(Material.WOOD, state -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? topMapColor : sideMapColor).strength(2.0f).sounds(BlockSoundGroup.WOOD);
+	}
+
+	protected static boolean never(BlockState state, BlockView world, BlockPos pos) {
+		return false;
 	}
 
 	protected static FabricItemSettings itemSettings() {
