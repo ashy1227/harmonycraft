@@ -15,8 +15,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.EnumSet;
-
 public class ParaspriteEntity extends PathAwareEntity implements Flutterer {
 	public ParaspriteEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
 		super(entityType, world);
