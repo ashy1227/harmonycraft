@@ -29,6 +29,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modApi "com.minelittlepony:minelittlepony:${project.minelp_version}"
+	modApi "com.minelittlepony:mson:${project.mson_version}"
+	include "com.minelittlepony:mson:${project.mson_version}"
 
 	modRuntime("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
