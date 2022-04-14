@@ -4,6 +4,9 @@
 	},
 	"data": {
 		"body": {
+			"name": "body",
+			"pivot": [0.0, 0.0, 0.0],
+			"texture": {"u": 0, "v": 0},
 			"cubes": [
 				{
 					"type": "mson:box",

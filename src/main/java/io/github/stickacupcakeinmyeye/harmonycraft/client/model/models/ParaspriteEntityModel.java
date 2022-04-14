@@ -22,7 +22,7 @@ public class ParaspriteEntityModel extends EntityModel<ParaspriteEntity> {
 		body = tree;
 		leftWing = tree.getChild("leftWing");
 		rightWing = tree.getChild("rightWing");
-		body.setPivot(0, 20, 0); // TODO figure out why it's displaying so far up in the first place
+		body.setPivot(0.0f, 21.5f, 0.0f);
 //		leftFeet = tree.getChild("leftFeet");
 //		rightFeet = tree.getChild("rightFeet");
 	}
@@ -34,17 +34,20 @@ public class ParaspriteEntityModel extends EntityModel<ParaspriteEntity> {
 
 	@Override
 	public void setAngles(ParaspriteEntity entity, float move, float swing, float ticks, float headYaw, float headPitch) {
-		if (entity.hasPassengers()) {
-			body.yaw = 0;
-			body.pitch = 0;
-		} else {
-			body.yaw = headYaw * 0.017453292f;
-			body.pitch = headPitch * 0.017453292f;
-		}
+		body.yaw = headYaw * 0.017453292f;
+		body.pitch = headPitch * 0.017453292f;
 
-		float pitch = 0.5f;
-		float roll = (float)Math.sin(ticks*1.25f) / 1.25f;
-		float yaw = -roll * pitch + (float)Math.cos(ticks*1.25f) / 8.0f;
+		// TODO it might be a good idea to have them flap in the direction of their travel
+		float pitch, yaw, roll;
+		if(entity.deathTime > 0) {
+			pitch = 0.0f;
+			roll = 0.0f;
+			yaw = 0.0f;
+		} else {
+			pitch = 0.5f;
+			roll = (float)Math.sin(ticks*1.5f) / 1.25f;
+			yaw = -roll * pitch + (float)Math.cos(ticks*1.5f) / 8.0f - 0.25f;
+		}
 
 		leftWing.visible = true;
 		leftWing.yaw = yaw;

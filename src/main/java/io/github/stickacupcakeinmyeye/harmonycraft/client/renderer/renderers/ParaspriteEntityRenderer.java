@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 
 public class ParaspriteEntityRenderer extends MobEntityRenderer<ParaspriteEntity, ParaspriteEntityModel> {
 	public ParaspriteEntityRenderer(EntityRendererFactory.Context context) {
-		super(context, HarmonyModels.PARASPRITE.createModel(), 0.3f);
+		super(context, HarmonyModels.PARASPRITE.createModel(), 0.3125f);
 	}
 
 	@Override

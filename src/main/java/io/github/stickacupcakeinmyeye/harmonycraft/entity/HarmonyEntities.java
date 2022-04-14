@@ -19,7 +19,7 @@ import net.minecraft.util.registry.Registry;
 public class HarmonyEntities {
 	public static final EntityType<ParaspriteEntity> PARASPRITE = register(
 		"parasprite",
-		FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ParaspriteEntity::new).dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build()
+		FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ParaspriteEntity::new).dimensions(EntityDimensions.fixed(0.3125f, 0.3125f)).build()
 	);
 
 	public static void registerAll() {
