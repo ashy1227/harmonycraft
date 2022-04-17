@@ -2,12 +2,15 @@ package io.github.stickacupcakeinmyeye.harmonycraft.item;
 
 import io.github.stickacupcakeinmyeye.harmonycraft.HarmonyCraft;
 import io.github.stickacupcakeinmyeye.harmonycraft.armor.MareDoWellArmorItem;
+import io.github.stickacupcakeinmyeye.harmonycraft.entity.HarmonyEntities;
 import io.github.stickacupcakeinmyeye.harmonycraft.item.items.CiderItem;
 import io.github.stickacupcakeinmyeye.harmonycraft.item.items.MiracleTonicItem;
 import io.github.stickacupcakeinmyeye.harmonycraft.item.items.TwicaneItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -51,6 +54,8 @@ public class HarmonyItems {
 
 	public static Item CHIMMY_CHERRY_CHONGA = new Item(itemSettings().food(HarmonyFoodComponents.CHIMMY_CHERRY_CHONGA));
 
+	public static Item PARASPRITE_SPAWN_EGG = new SpawnEggItem(HarmonyEntities.PARASPRITE, 	25521, 2485085, new Item.Settings().group(ItemGroup.MISC));
+
 	public static void registerAll() {
 		registerItem("miracle_tonic", MIRACLE_TONIC);
 		registerItem("twicane", TWICANE);
@@ -89,6 +94,8 @@ public class HarmonyItems {
 		registerItem("cider", CIDER);
 
 		registerItem("chimmy_cherry_chonga", CHIMMY_CHERRY_CHONGA);
+
+		registerItem("parasprite_spawn_egg", PARASPRITE_SPAWN_EGG);
 	}
 
 	protected static void registerItem(String ID, Item item) {

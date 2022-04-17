@@ -9,6 +9,10 @@
 	"block.harmony.stormcloud_stairs": "Stormcloud Stairs",
 	"block.harmony.stormcloud_slab": "Stormcloud Slab",
 	"block.harmony.poison_joke": "Poison Joke",
-	"effect.harmony.poison_joke": "Poison Joke",
-	"item.harmony.miracle_tonic": "Flim & Flam's Miracle Curative Tonic"
+
+  	"item.harmony.miracle_tonic": "Flim & Flam's Miracle Curative Tonic",
+  	"item.harmony.parasprite_spawn_egg": "Spawn Parasprite",
+
+  	"effect.harmony.poison_joke": "Poison Joke",
+  	"entity.harmony.parasprite": "Parasprite"
 }
