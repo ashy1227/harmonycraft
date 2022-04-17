@@ -16,6 +16,8 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class HarmonyItems {
+	public static Item PARASPRITE_SPAWN_EGG = new SpawnEggItem(HarmonyEntities.PARASPRITE, 	25521, 2485085, itemSettings());
+
 	public static MiracleTonicItem MIRACLE_TONIC = new MiracleTonicItem(itemSettings().maxCount(16));
 	public static TwicaneItem TWICANE = new TwicaneItem(9, -1.0f,itemSettings().rarity(Rarity.EPIC).maxCount(1));
 
@@ -54,9 +56,9 @@ public class HarmonyItems {
 
 	public static Item CHIMMY_CHERRY_CHONGA = new Item(itemSettings().food(HarmonyFoodComponents.CHIMMY_CHERRY_CHONGA));
 
-	public static Item PARASPRITE_SPAWN_EGG = new SpawnEggItem(HarmonyEntities.PARASPRITE, 	25521, 2485085, new Item.Settings().group(ItemGroup.MISC));
-
 	public static void registerAll() {
+		registerItem("parasprite_spawn_egg", PARASPRITE_SPAWN_EGG);
+
 		registerItem("miracle_tonic", MIRACLE_TONIC);
 		registerItem("twicane", TWICANE);
 
@@ -94,8 +96,6 @@ public class HarmonyItems {
 		registerItem("cider", CIDER);
 
 		registerItem("chimmy_cherry_chonga", CHIMMY_CHERRY_CHONGA);
-
-		registerItem("parasprite_spawn_egg", PARASPRITE_SPAWN_EGG);
 	}
 
 	protected static void registerItem(String ID, Item item) {
