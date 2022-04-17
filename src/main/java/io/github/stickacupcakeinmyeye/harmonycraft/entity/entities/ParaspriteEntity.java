@@ -70,13 +70,25 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
+		UUID uuid;
+
 		if (nbt.containsUuid("Owner")) {
-			this.setOwnerUuid(nbt.getUuid("Owner"));
+			uuid = nbt.getUuid("Owner");
 		} else {
 			String string = nbt.getString("Owner");
-			this.setOwnerUuid(ServerConfigHandler.getPlayerUuidByName(this.getServer(), string));
+			uuid = ServerConfigHandler.getPlayerUuidByName(this.getServer(), string);
+		}
+		if (uuid != null) {
+			try {
+				this.setOwnerUuid(uuid);
+			}
+			catch (Throwable string) {
+				System.out.println(string.getMessage());
+			}
 		}
 		this.setFollowing(nbt.getBoolean("Following"));
+		System.out.println("Owner: " + getOwnerUuid());
+		System.out.println("Following: " + isFollowing());
 	}
 
 	public void setOwnerUuid(@Nullable UUID uuid) {
@@ -117,17 +129,17 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 
 	@Override
 	public ActionResult interactMob(PlayerEntity player, Hand hand) {
-		if (!this.world.isClient && (this.getOwnerUuid() == null || this.getOwnerUuid() != player.getUuid())) {
+		if (!this.world.isClient && (this.getOwnerUuid() == null || !this.getOwnerUuid().equals(player.getUuid()))) {
 			this.setOwner(player);
 			this.setFollowing(true);
 
 			this.navigation.stop();
 			this.setTarget(null);
-			this.world.sendEntityStatus(this, (byte)7);
 
+			this.world.sendEntityStatus(this, (byte)7); // love hearts
 			this.playSound(SoundEvents.ENTITY_FOX_AMBIENT, this.getSoundVolume(), 1.0f);
 			return ActionResult.SUCCESS;
-		} else if(!this.world.isClient && this.getOwnerUuid() == player.getUuid()) {
+		} else if(!this.world.isClient && this.getOwnerUuid().equals(player.getUuid())) {
 			this.setFollowing(!this.isFollowing());
 
 			if(this.isFollowing())
