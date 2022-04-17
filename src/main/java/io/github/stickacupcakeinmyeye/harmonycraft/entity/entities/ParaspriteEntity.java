@@ -5,6 +5,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.AboveGroundTargeting;
 import net.minecraft.entity.ai.NoPenaltySolidTargeting;
 import net.minecraft.entity.ai.control.FlightMoveControl;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
@@ -170,9 +171,9 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 
 	@Override
 	protected void initGoals() {
-//		this.goalSelector.add(0, new EscapeDangerGoal(this, 2.0));
+		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.25f));
 		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f, 1.0f, true));
-		this.goalSelector.add(2, new ParaspriteFollowOwnerGoal(1.0f, 0.0f, 0.2f));
+		this.goalSelector.add(2, new ParaspriteFollowOwnerGoal(3.0f, 0.0f, 0.2f));
 		this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 8.0f, 0.025f, true));
 		this.goalSelector.add(4, new ParaspriteEntity.ParaspriteWanderAroundGoal());
 		this.goalSelector.add(5, new LookAroundGoal(this));
