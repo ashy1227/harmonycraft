@@ -119,6 +119,8 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 	public ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (!this.world.isClient && (this.getOwnerUuid() == null || this.getOwnerUuid() != player.getUuid())) {
 			this.setOwner(player);
+			this.setFollowing(true);
+
 			this.navigation.stop();
 			this.setTarget(null);
 			this.world.sendEntityStatus(this, (byte)7);
@@ -131,10 +133,10 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			if(this.isFollowing())
 				this.playSound(SoundEvents.ENTITY_VILLAGER_CELEBRATE, this.getSoundVolume(), 1.0f);
 			else
-				this.playSound(SoundEvents.ENTITY_COW_AMBIENT, this.getSoundVolume(), 1.0f);
+				this.playSound(SoundEvents.ENTITY_VILLAGER_NO, this.getSoundVolume(), 1.0f);
 			return ActionResult.SUCCESS;
 		}
-		this.playSound(SoundEvents.ENTITY_FOX_AMBIENT, this.getSoundVolume(), 1.0f);
+		this.playSound(SoundEvents.ENTITY_CAT_PURR, this.getSoundVolume(), 1.0f);
 		return ActionResult.SUCCESS;
 	}
 	@Override
@@ -157,8 +159,8 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 	@Override
 	protected void initGoals() {
 //		this.goalSelector.add(0, new EscapeDangerGoal(this, 2.0));
-		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f, 0.25f, true));
-		this.goalSelector.add(2, new ParaspriteFollowOwnerGoal(1.0f, 4.0f, 24.0f));
+		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f, 1.0f, true));
+		this.goalSelector.add(2, new ParaspriteFollowOwnerGoal(1.0f, 0.0f, 0.2f));
 		this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 8.0f, 0.025f, true));
 		this.goalSelector.add(4, new ParaspriteEntity.ParaspriteWanderAroundGoal());
 		this.goalSelector.add(5, new LookAroundGoal(this));
