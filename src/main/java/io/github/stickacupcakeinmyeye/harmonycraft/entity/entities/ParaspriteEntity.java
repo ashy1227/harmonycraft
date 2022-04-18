@@ -88,8 +88,6 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			}
 		}
 		this.setFollowing(nbt.getBoolean("Following"));
-		System.out.println("Owner: " + getOwnerUuid());
-		System.out.println("Following: " + isFollowing());
 	}
 
 	public void setOwnerUuid(@Nullable UUID uuid) {
