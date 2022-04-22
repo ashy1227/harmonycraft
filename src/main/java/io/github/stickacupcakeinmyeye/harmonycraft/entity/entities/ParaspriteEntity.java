@@ -171,10 +171,11 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 	protected void initGoals() {
 		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.25f));
 		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f, 1.0f, true));
-		this.goalSelector.add(2, new ParaspriteFollowOwnerGoal(3.0f, 0.0f, 0.2f));
-		this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 8.0f, 0.025f, true));
-		this.goalSelector.add(4, new ParaspriteEntity.ParaspriteWanderAroundGoal());
-		this.goalSelector.add(5, new LookAroundGoal(this));
+		this.goalSelector.add(2, new ParaspriteHugGoal());
+		this.goalSelector.add(3, new ParaspriteFollowOwnerGoal(3.0f, 0.0f, 0.2f));
+		this.goalSelector.add(4, new LookAtEntityGoal(this, LivingEntity.class, 8.0f, 0.025f, true));
+		this.goalSelector.add(5, new ParaspriteEntity.ParaspriteWanderAroundGoal());
+		this.goalSelector.add(6, new LookAroundGoal(this));
 	}
 
 	@Override
@@ -261,12 +262,6 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			return false;
 		}
 	}
-	class ParaspriteHugGoal extends Goal { // TODO
-		@Override
-		public boolean canStart() {
-			return false;
-		}
-	}
 	class ParaspriteSwarmGoal extends Goal { // TODO
 		@Override
 		public boolean canStart() {
@@ -295,6 +290,34 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 		@Override
 		public boolean canStart() {
 			return false;
+		}
+	}
+	class ParaspriteHugGoal extends Goal {
+		@Override
+		public boolean canStart() {
+			if(ParaspriteEntity.this.getOwner() == null)
+				return false;
+			if(ParaspriteEntity.this.squaredDistanceTo(ParaspriteEntity.this.getOwner()) > 32)
+				return false;
+			if(random.nextInt(75) == 0)
+				return true;
+			return false;
+		}
+
+		@Override
+		public boolean shouldContinue() {
+			return ParaspriteEntity.this.navigation.isFollowingPath();
+		}
+
+		@Override
+		public void stop() {
+			ParaspriteEntity.this.world.sendEntityStatus(ParaspriteEntity.this, (byte)7); // love hearts
+			ParaspriteEntity.this.playSound(SoundEvents.ENTITY_CAT_PURREOW, ParaspriteEntity.this.getSoundVolume(), 1.0f);
+		}
+
+		@Override
+		public void tick() {
+			ParaspriteEntity.this.navigation.startMovingTo(ParaspriteEntity.this.getOwner(), 1.0d);
 		}
 	}
 	class ParaspriteWanderAroundGoal extends Goal {
