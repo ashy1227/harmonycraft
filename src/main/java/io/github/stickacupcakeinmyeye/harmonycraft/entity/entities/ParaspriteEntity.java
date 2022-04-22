@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.AboveGroundTargeting;
 import net.minecraft.entity.ai.NoPenaltySolidTargeting;
+import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.Goal;
@@ -19,12 +20,15 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.HoglinBrain;
+import net.minecraft.entity.mob.HoglinEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.ServerConfigHandler;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -174,9 +178,10 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 		this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f, 1.0f, true));
 		this.goalSelector.add(2, new ParaspriteHugGoal());
 		this.goalSelector.add(3, new ParaspriteFollowOwnerGoal(3.0f, 0.0f, 0.2f));
-		this.goalSelector.add(4, new LookAtEntityGoal(this, LivingEntity.class, 8.0f, 0.025f, true));
-		this.goalSelector.add(5, new ParaspriteEntity.ParaspriteWanderAroundGoal());
-		this.goalSelector.add(6, new LookAroundGoal(this));
+		this.goalSelector.add(4, new ParaspriteGatherGoal());
+		this.goalSelector.add(5, new LookAtEntityGoal(this, LivingEntity.class, 8.0f, 0.025f, true));
+		this.goalSelector.add(6, new ParaspriteEntity.ParaspriteWanderAroundGoal());
+		this.goalSelector.add(7, new LookAroundGoal(this));
 	}
 
 	@Override
@@ -269,12 +274,6 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			return false;
 		}
 	}
-	class ParaspriteGatherGoal extends Goal { // TODO
-		@Override
-		public boolean canStart() {
-			return false;
-		}
-	}
 	class ParaspriteEatAppleGoal extends Goal { // TODO
 		@Override
 		public boolean canStart() {
@@ -293,16 +292,52 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			return false;
 		}
 	}
+	class ParaspriteGatherGoal extends Goal {
+		protected static final TargetPredicate targetPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(24);
+
+		@Nullable
+		protected ParaspriteEntity target;
+
+		@Override
+		public boolean canStart() {
+			if(random.nextInt(80) != 0)
+				return false;
+			this.target = ParaspriteEntity.this.world.getClosestEntity(ParaspriteEntity.this.world.getEntitiesByClass(ParaspriteEntity.class, ParaspriteEntity.this.getBoundingBox().expand(24, 24, 24), livingEntity -> true), ParaspriteGatherGoal.targetPredicate, ParaspriteEntity.this, ParaspriteEntity.this.getX(), ParaspriteEntity.this.getEyeY(), ParaspriteEntity.this.getZ());
+			return this.target != null;
+		}
+
+		@Override
+		public boolean shouldContinue() {
+			if (!this.target.isAlive())
+				return false;
+			return ParaspriteEntity.this.navigation.isFollowingPath();
+		}
+
+		@Override
+		public void start() {
+			ParaspriteEntity.this.navigation.startMovingTo(this.target, 1.0d);
+		}
+
+		@Override
+		public void stop() {
+			this.target = null;
+		}
+
+		@Override
+		public void tick() {
+			if (!this.target.isAlive())
+				return;
+			ParaspriteEntity.this.getLookControl().lookAt(this.target.getX(), this.target.getEyeY(), this.target.getZ());
+		}
+	}
 	class ParaspriteHugGoal extends Goal {
 		@Override
 		public boolean canStart() {
 			if(ParaspriteEntity.this.getOwner() == null)
 				return false;
-			if(ParaspriteEntity.this.squaredDistanceTo(ParaspriteEntity.this.getOwner()) > 32)
+			if(ParaspriteEntity.this.squaredDistanceTo(ParaspriteEntity.this.getOwner()) > 24*24)
 				return false;
-			if(random.nextInt(75) == 0)
-				return true;
-			return false;
+			return random.nextInt(60) == 0;
 		}
 
 		@Override
@@ -322,6 +357,7 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 		@Override
 		public void tick() {
 			ParaspriteEntity.this.navigation.startMovingTo(ParaspriteEntity.this.getOwner(), 1.0d);
+			ParaspriteEntity.this.getLookControl().lookAt(ParaspriteEntity.this.getOwner().getX(), ParaspriteEntity.this.getOwner().getEyeY(), ParaspriteEntity.this.getOwner().getZ());
 		}
 	}
 	class ParaspriteWanderAroundGoal extends Goal {
