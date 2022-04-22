@@ -16,5 +16,7 @@
 	"item.harmony.parasprite_spawn_egg": "Parasprite Spawn Egg",
 
 	"effect.harmony.poison_joke": "Poison Joke",
-	"entity.harmony.parasprite": "Parasprite"
+	"entity.harmony.parasprite": "Parasprite",
+
+  	"stat.harmony.hugged_by_pararsprite": "Hugged by Parasprite"
 }

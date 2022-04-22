@@ -5,6 +5,7 @@ import io.github.stickacupcakeinmyeye.harmonycraft.effect.HarmonyStatusEffects;
 import io.github.stickacupcakeinmyeye.harmonycraft.entity.HarmonyEntities;
 import io.github.stickacupcakeinmyeye.harmonycraft.item.HarmonyItems;
 import io.github.stickacupcakeinmyeye.harmonycraft.particle.HarmonyParticles;
+import io.github.stickacupcakeinmyeye.harmonycraft.stat.HarmonyStats;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,5 +21,6 @@ public class HarmonyCraft implements ModInitializer {
 		HarmonyStatusEffects.registerAll();
 		HarmonyParticles.registerAll();
 		HarmonyEntities.registerAll();
+		HarmonyStats.registerAll();
 	}
 }

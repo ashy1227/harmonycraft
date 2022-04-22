@@ -1,5 +1,6 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.entity.entities;
 
+import io.github.stickacupcakeinmyeye.harmonycraft.stat.HarmonyStats;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.AboveGroundTargeting;
@@ -313,6 +314,9 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 		public void stop() {
 			ParaspriteEntity.this.world.sendEntityStatus(ParaspriteEntity.this, (byte)7); // love hearts
 			ParaspriteEntity.this.playSound(SoundEvents.ENTITY_CAT_PURREOW, ParaspriteEntity.this.getSoundVolume(), 1.0f);
+			if(ParaspriteEntity.this.getOwner() instanceof PlayerEntity) {
+				((PlayerEntity) ParaspriteEntity.this.getOwner()).incrementStat(HarmonyStats.HUGGED_BY_PARASPRITE);
+			}
 		}
 
 		@Override
