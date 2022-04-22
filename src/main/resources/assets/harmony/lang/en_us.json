@@ -1,4 +1,6 @@
 {
+	"itemGroup.harmony.items": "HarmonyCraft Items",
+
 	"block.harmony.cloud": "Cloud",
 	"block.harmony.cloud_stairs": "Cloud Stairs",
 	"block.harmony.cloud_slab": "Cloud Slab",
@@ -10,9 +12,9 @@
 	"block.harmony.stormcloud_slab": "Stormcloud Slab",
 	"block.harmony.poison_joke": "Poison Joke",
 
-  	"item.harmony.miracle_tonic": "Flim & Flam's Miracle Curative Tonic",
-  	"item.harmony.parasprite_spawn_egg": "Parasprite Spawn Egg",
+	"item.harmony.miracle_tonic": "Flim & Flam's Miracle Curative Tonic",
+	"item.harmony.parasprite_spawn_egg": "Parasprite Spawn Egg",
 
-  	"effect.harmony.poison_joke": "Poison Joke",
-  	"entity.harmony.parasprite": "Parasprite"
+	"effect.harmony.poison_joke": "Poison Joke",
+	"entity.harmony.parasprite": "Parasprite"
 }
