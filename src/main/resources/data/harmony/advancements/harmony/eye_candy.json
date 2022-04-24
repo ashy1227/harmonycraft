@@ -1,0 +1,39 @@
+{
+  "parent": "harmony:harmony/root",
+  "display": {
+	"icon": {
+	  "item": "harmony:parasprite_spawn_egg"
+	},
+	"title": {
+	  "translate": "advancements.harmony.eye_candy.title"
+	},
+	"description": {
+	  "translate": "advancements.harmony.eye_candy.description"
+	},
+	"frame": "task",
+	"show_toast": true,
+	"announce_to_chat": true,
+	"hidden": false
+  },
+  "criteria": {
+	"pet_parasprite": {
+	  "trigger": "minecraft:player_interacted_with_entity",
+	  "conditions": {
+		"entity": [
+		  {
+			"condition": "minecraft:entity_properties",
+			"entity": "this",
+			"predicate": {
+			  "type": "harmony:parasprite"
+			}
+		  }
+		]
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "pet_parasprite"
+	]
+  ]
+}

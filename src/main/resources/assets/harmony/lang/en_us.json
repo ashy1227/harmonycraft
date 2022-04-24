@@ -15,8 +15,14 @@
 	"item.harmony.miracle_tonic": "Flim & Flam's Miracle Curative Tonic",
 	"item.harmony.parasprite_spawn_egg": "Parasprite Spawn Egg",
 
-	"effect.harmony.poison_joke": "Poison Joke",
 	"entity.harmony.parasprite": "Parasprite",
 
-	"stat.harmony.hugged_by_pararsprite": "Hugged by Parasprite"
+	"effect.harmony.poison_joke": "Poison Joke",
+
+	"stat.harmony.hugged_by_pararsprite": "Hugged by Parasprite",
+
+	"advancements.harmony.root.title": "HarmonyCraft",
+	"advancements.harmony.root.description": "pony pony pony pony pony pony",
+	"advancements.harmony.eye_candy.title": "Talk About Eye Candy!",
+	"advancements.harmony.eye_candy.description": "Tame or pet a parasprite"
 }
