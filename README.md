@@ -16,7 +16,7 @@ This mod is designed to work with the [Love & Tolerance](https://love-tolerance.
 
 [me - programming](https://github.com/stickacupcakeinmyeye) \
 [Skelegant - textures (thank you!!)](https://github.com/Skelegant) \
-Everypony behind making MLP!
+Everypony behind making MLP for inspiring this!
 
 
 ### License
