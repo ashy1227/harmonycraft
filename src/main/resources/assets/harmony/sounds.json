@@ -1,0 +1,39 @@
+{
+	"entity.parasprite.ambient": {
+		"subtitle": "entity.harmony.parasprite.ambient",
+		"sounds": [
+			"harmony:mob/parasprite/happy1",
+			"harmony:mob/parasprite/happy2",
+			"harmony:mob/parasprite/happy3",
+			"harmony:mob/parasprite/say1",
+			{
+				"name": "harmony:mob/parasprite/wings",
+				"weight": 6
+			}
+		]
+	},
+	"entity.parasprite.hug": {
+		"subtitle": "entity.harmony.parasprite.hug",
+		"sounds": [
+			"harmony:mob/parasprite/hug1"
+		]
+	},
+	"entity.parasprite.happy": {
+		"subtitle": "entity.harmony.parasprite.happy",
+		"sounds": [
+			"harmony:mob/parasprite/happy1",
+			"harmony:mob/parasprite/happy2",
+			"harmony:mob/parasprite/happy3"
+		]
+	},
+	"entity.parasprite.reproduce": {
+		"subtitle": "entity.harmony.parasprite.reproduce",
+		"sounds": [
+			{
+				"name": "harmony:mob/parasprite/reproduce1",
+				"weight": 10
+			},
+			"harmony:mob/parasprite/reproduce2"
+		]
+	}
+}

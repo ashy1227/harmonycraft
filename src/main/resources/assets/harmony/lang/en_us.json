@@ -16,10 +16,15 @@
 	"item.harmony.parasprite_spawn_egg": "Parasprite Spawn Egg",
 
 	"entity.harmony.parasprite": "Parasprite",
-
+	
 	"effect.harmony.poison_joke": "Poison Joke",
-
+	
 	"stat.harmony.hugged_by_pararsprite": "Hugged by Parasprite",
+
+	"entity.harmony.parasprite.ambient": "Parasprite Purrs",
+	"entity.harmony.parasprite.hug": "Parasprite Hugs",
+	"entity.harmony.parasprite.happy": "Parasprite is Happy",
+	"entity.harmony.parasprite.reproduce": "Parasprite Reproduces",
 
 	"advancements.harmony.root.title": "HarmonyCraft",
 	"advancements.harmony.root.description": "pony pony pony pony pony pony",

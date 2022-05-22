@@ -1,5 +1,6 @@
 package io.github.stickacupcakeinmyeye.harmonycraft.entity.entities;
 
+import io.github.stickacupcakeinmyeye.harmonycraft.sound.HarmonySoundEvents;
 import io.github.stickacupcakeinmyeye.harmonycraft.stat.HarmonyStats;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
@@ -20,18 +21,14 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.HoglinBrain;
-import net.minecraft.entity.mob.HoglinEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.ServerConfigHandler;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -141,24 +138,30 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			this.setTarget(null);
 
 			this.world.sendEntityStatus(this, (byte)7); // love hearts
-			this.playSound(SoundEvents.ENTITY_FOX_AMBIENT, this.getSoundVolume(), 1.0f);
+			this.playSound(HarmonySoundEvents.PARASPRITE_HAPPY, this.getSoundVolume(), 1.0f);
 			return ActionResult.SUCCESS;
 		} else if(!this.world.isClient && this.getOwnerUuid().equals(player.getUuid())) {
 			this.setFollowing(!this.isFollowing());
 
-			if(this.isFollowing())
-				this.playSound(SoundEvents.ENTITY_VILLAGER_CELEBRATE, this.getSoundVolume(), 1.0f);
-			else
-				this.playSound(SoundEvents.ENTITY_VILLAGER_NO, this.getSoundVolume(), 1.0f);
+			if(this.isFollowing()) {
+				this.playSound(HarmonySoundEvents.PARASPRITE_HAPPY, this.getSoundVolume(), 1.2f);
+				this.world.sendEntityStatus(ParaspriteEntity.this, (byte)7);
+			} else {
+				this.playSound(HarmonySoundEvents.PARASPRITE_AMBIENT, this.getSoundVolume(), 0.8f);
+				this.world.sendEntityStatus(ParaspriteEntity.this, (byte)6);
+			}
 			return ActionResult.SUCCESS;
 		}
-		this.playSound(SoundEvents.ENTITY_CAT_PURR, this.getSoundVolume(), 1.0f);
+		this.playSound(HarmonySoundEvents.PARASPRITE_HAPPY, this.getSoundVolume(), 0.9f);
+
 		return ActionResult.SUCCESS;
 	}
 	@Override
 	public void handleStatus(byte status) {
 		if (status == 7) {
 			this.showHeartParticles();
+		} else if(status == 6) {
+			this.showNegativeParticles();
 		} else {
 			super.handleStatus(status);
 		}
@@ -169,6 +172,14 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 			double velY = this.random.nextGaussian() * 0.02;
 			double velZ = this.random.nextGaussian() * 0.02;
 			this.world.addParticle(ParticleTypes.HEART, this.getParticleX(1.0), this.getRandomBodyY() + 0.5, this.getParticleZ(1.0), velX, velY, velZ);
+		}
+	}
+	protected void showNegativeParticles() {
+		for (int i = 0; i < 7; ++i) {
+			double velX = this.random.nextGaussian() * 0.02;
+			double velY = this.random.nextGaussian() * 0.02;
+			double velZ = this.random.nextGaussian() * 0.02;
+			this.world.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getParticleX(1.0), this.getRandomBodyY() + 0.5, this.getParticleZ(1.0), velX, velY, velZ);
 		}
 	}
 
@@ -214,15 +225,15 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 	}
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ENTITY_FOX_AMBIENT;
+		return HarmonySoundEvents.PARASPRITE_AMBIENT;
 	}
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return SoundEvents.ENTITY_FOX_HURT;
+		return HarmonySoundEvents.PARASPRITE_AMBIENT; // TODO
 	}
 	@Override
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_FOX_DEATH;
+		return HarmonySoundEvents.PARASPRITE_AMBIENT; // TODO
 	}
 	@Override
 	protected float getSoundVolume() {
@@ -348,7 +359,7 @@ public class ParaspriteEntity extends PathAwareEntity implements Flutterer, Tame
 		@Override
 		public void stop() {
 			ParaspriteEntity.this.world.sendEntityStatus(ParaspriteEntity.this, (byte)7); // love hearts
-			ParaspriteEntity.this.playSound(SoundEvents.ENTITY_CAT_PURREOW, ParaspriteEntity.this.getSoundVolume(), 1.0f);
+			ParaspriteEntity.this.playSound(HarmonySoundEvents.PARASPRITE_HUG, ParaspriteEntity.this.getSoundVolume(), 1.0f);
 			if(ParaspriteEntity.this.getOwner() instanceof PlayerEntity) {
 				((PlayerEntity) ParaspriteEntity.this.getOwner()).incrementStat(HarmonyStats.HUGGED_BY_PARASPRITE);
 			}
